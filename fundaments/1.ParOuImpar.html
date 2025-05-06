@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+    <link rel="stylesheet" href="./1.ParOuImpar.css">
+</head>
+<body>
+    <div class="question">
+        <p id="p">Par ou Impar?</p>
+        <input type="number" id="number1" placeholder="Digite um número:">
+        <button onclick="imparOuPar()">Enviar</button>
+        <p id="saida"></p>
+
+        <script>
+            const imparOuPar = () => {
+                const name = document.getElementById("number1").value;
+                if (name % 2 == 0) {
+                    document.getElementById("saida").innerText = "Par"
+                } else {
+                    document.getElementById("saida").innerText = "Ímpar"
+                }
+            }
+        </script>
+    </div>
+    
+</body>
+</html>

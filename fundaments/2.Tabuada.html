@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./2.Tabuada.css">
+    <title>Exercício 2</title>
+</head>
+<body>
+    <div class="question2">
+        <p id="p">Tabuada</p>
+        <input type="number" id="number1" placeholder="Digite um número:">
+        <div class="question2-1">
+            <button onclick="tabuada()" id="button-send">Enviar</button>
+            <button onclick="refresh()"id='button-refresh'>Refreshing</button>
+            <p id="saida"></p>
+        </div>
+
+        <script>
+
+            const refresh = () => {
+                document.getElementById("saida").innerText = ""
+                document.getElementById("number1").value = ""
+            }
+
+            const tabuada = () => {
+                
+                saida.innerHTML = ""
+
+                const number = document.getElementById("number1").value
+                for(let i = 1; i <=10; i++) {
+                    let res = i * number
+                    saida.innerHTML += `${number} x ${i} = ${res} <br>`
+
+                    if(number == 0) {
+                        saida.innerHTML = ''
+                    }
+
+                }
+            }
+            
+        
+        </script>
+    </div>
+</body>
+</html>

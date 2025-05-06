@@ -1,0 +1,49 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.question {
+    width: 250px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#number1 {
+    border: 1px solid black;
+    padding: 5px;
+    display: flex;
+    width: 150px;
+}
+
+button {
+    width: 80px;
+    height: 30px;
+    border: none;
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: filter 0.2s;
+}
+
+button:active {
+    filter: brightness(85%);
+}
+
+.p {
+    font-size: 1rem;
+}

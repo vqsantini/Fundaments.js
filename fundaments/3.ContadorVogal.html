@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./3.ContadorVogal.css" />
+    <title>Exercício 3</title>
+  </head>
+  <body>
+    <div class="question3">
+      <p id="p">Contagem de Vogal</p>
+      <input type="text" id="texto" placeholder="Escreva algo..." />
+      <button onclick="contagemDeVogal()" id="button-send">Enviar</button>
+      <p id="saida"></p>
+
+      <script>
+        const contagemDeVogal = () => {
+          let texto = document.getElementById("texto").value;
+
+          let vogais = 0;
+
+          for (let i = 0; i < texto.length; i++) {
+            let letra = texto[i].toLowerCase();
+            console.log(letra);
+            if(["a","e","i","o","u"].includes (letra)) {
+                vogais++;
+            }
+          }
+
+          if (vogais > 1) {
+            document.getElementById(
+              "saida"
+            ).innerHTML = `a palavra/texto contém ${vogais} vogais.`;
+          } else if (vogais == 1) {
+            document.getElementById(
+              "saida"
+            ).innerHTML = `a palavra/texto contém uma vogal.`;
+          } else if (vogais == 0) {
+            document.getElementById(
+              "saida"
+            ).innerHTML = `a palavra/texto contém nenhuma vogal.`;
+          }
+        };
+      </script>
+    </div>
+  </body>
+</html>
