@@ -72,6 +72,10 @@ body {
     filter: brightness(85%);
 }
 
+#text-extend {
+    display: none;
+}
+
 #lista {
     width: 200px;
     max-width: 200px;
@@ -81,14 +85,34 @@ body {
     gap: 20px
 }
 
-.list-content {
-    width: 200px;
-    border: none;
+#list-content {
+    max-width: 200px;
+    height: auto;
+    max-height: 500px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
 
+.border-active {
+    border: 1px solid black;
+}
+.border-active-right {
+    border-right: 1px solid black;
+}
+.border-active-bottom {
+    border-bottom: 1px solid black;
+}
+
+#list-content1 {
+    
+}
+
+#linha {
+    display: flex;
+    gap: 10px;
 }
 
 #list-order {
-    width: 20px;
+    padding: 0px 10px;
 }
