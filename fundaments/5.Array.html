@@ -1,103 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./5.Array.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./5.Array.css" />
     <title>Exercício 5</title>
-</head>
-<body id="body">
+  </head>
+  <body id="body">
     <div id="content">
-        <button onclick="init() " id="button-init">Iniciar lista</button>
-        <div id="content-1">
-            <div id="add-content-lista">
-                <p class="title">Adicionar a lista: </p>
-                <input type="number" id="n" placeholder="Digite um número...">
-                <p id="text-extend"></p>
-                <button onclick="send_number() " id="button-send-number">Send</button>
-            </div>
-            <div id="lista">
-                <div class="title-list">
-                    <p class="title">Lista</p>
-                </div>
-                <div id="list-content">
-                    <div id="list-content1">
-                        <div id="linha">
-                            <div id="list-order"></div>
-                            <div>
-                                <div id="list-exit"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list-content2">
-                        <button onclick="order_growing()" id="order_growing">Ordem Crescente</button>
-                        <button onclick="order_decreasing()" id="order_decreasing">Ordem Decrescente</button>
-                        <button onclick="order_default()" id="order_default">Default</button>
-                    </div>
-
-                </div>    
-            </div>
+      <button onclick="init() " id="button-init">Iniciar lista</button>
+      <div id="content-1">
+        <div id="add-content-lista">
+          <p class="title">Adicionar a lista:</p>
+          <input type="number" id="n" placeholder="Digite um número..." />
+          <p id="text-extend"></p>
+          <button onclick="send_number() " id="button-send-number">Send</button>
         </div>
-       
+        <div id="lista">
+          <div class="title-list">
+            <p class="title">Lista</p>
+          </div>
+          <div id="list-content">
+            <div id="list-content1">
+              <div id="linha">
+                <div id="list-order"></div>
+                <div>
+                  <div id="list-exit"><p id="list-exit-p"></p></div>
+                </div>
+              </div>
+            </div>
+            <div class="list-content2">
+              <button onclick="order_growing()" id="order_growing">
+                Ordem Crescente
+              </button>
+              <button onclick="order_decreasing()" id="order_decreasing">
+                Ordem Decrescente
+              </button>
+              <button onclick="order_default()" id="order_default">
+                Default
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script>
-        let lista_criada = false;
+      let lista_criada = false;
 
+      const init = () => {
+        document.getElementById("button-init").style.display = "none";
+        document.getElementById("content-1").style.display = "flex";
+        document.getElementById("body").style.alignItems = "flex-start";
+        document.getElementById("body").style.marginTop = "150px";
+        document.getElementById("body").style.height = "calc(100vh - 150px)";
+        document.getElementById("content").style.display = "block";
+      };
 
-        const init = () => {
-            document.getElementById("button-init").style.display = "none";
-            document.getElementById("content-1").style.display = "flex";
-            document.getElementById("body").style.alignItems = "flex-start";
-            document.getElementById("body").style.marginTop = "150px";
-            document.getElementById("body").style.height = "calc(100vh - 150px)";
-            document.getElementById("content").style.display = "block";
+      let contador = 1;
+      const send_button = document.getElementById("button-send-number");
+      send_button.addEventListener("click", () => {
+        contador++;
+
+        lista_criada = true;
+        const border_list_content = document.getElementById("list-content1");
+        const border_list_order = document.getElementById("list-order");
+        const border_linha = document.getElementById("linha");
+        border_list_content.classList.add("border-active");
+        border_list_order.classList.add("border-active-right");
+        if (contador > 2) {
+          border_linha.classList.add("border-active-bottom");
         }
-        
-        let contador = 1
-        const send_button = document.getElementById("button-send-number")
-        send_button.addEventListener("click", () => {
-            contador++
-            
-            lista_criada = true;
-            const border_list_content = document.getElementById("list-content1")
-            const border_list_order = document.getElementById("list-order")
-            const border_linha = document.getElementById("linha")
-            border_list_content.classList.add("border-active")
-            border_list_order.classList.add("border-active-right")
-            if(contador > 2) {
-                border_linha.classList.add("border-active-bottom")
-            }
-        })
+      });
 
-        if(lista_criada == true) {
+      if (lista_criada == true) {
+      }
 
+      const send_number = () => {
+        let n = [];
+        n[contador] = document.getElementById("n").value;
+        const text_extend = document.getElementById("text-extend");
+        if (n[contador].length <= 19 && n[contador] != 0) {
+          text_extend.style.display = "none";
+          document.getElementById("n").value = "";
+          console.log(n[contador]);
+          let list_exit = document.getElementById("list-exit-p");
+          let list_order = document.getElementById("list-order");
+          list_order.innerHTML += `${contador}º<br>`;
+          list_exit.innerHTML += `${n[contador]}<br>`;
         }
-
-        const send_number = () => {
-        let n = [] 
-        n[contador] = document.getElementById("n").value
-        const text_extend = document.getElementById("text-extend")
-            if(n[contador].length <= 19 && n[contador] != 0) {    
-                
-                text_extend.style.display = "none"
-                document.getElementById("n").value = ""
-                console.log(n[contador])
-                let list_exit = document.getElementById("list-exit")
-                let list_order = document.getElementById("list-order")
-                list_order.innerHTML += `${contador}º <br>`
-                list_exit.innerHTML += `${n[contador]} <br>`
-            } if(n[contador].length > 19 && n[contador] != 0){
-                contador--
-                text_extend.style.display = "flex"
-                text_extend.innerHTML = "Muito grande!!"
-            } if(n[contador] == 0) {
-                contador--
-                text_extend.style.display = "flex"
-                text_extend.innerHTML = "Digite um número!!"
-            }
+        if (n[contador].length > 19 && n[contador] != 0) {
+          contador--;
+          text_extend.style.display = "flex";
+          text_extend.innerHTML = "Muito grande!!";
         }
-
+        if (n[contador] == 0) {
+          contador--;
+          text_extend.style.display = "flex";
+          text_extend.innerHTML = "Digite um número!!";
+        }
+      };
     </script>
-</body>
+  </body>
 </html>

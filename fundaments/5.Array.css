@@ -116,3 +116,14 @@ body {
 #list-order {
     padding: 0px 10px;
 }
+
+#list-exit {
+    flex: 1 1 100%;
+    display: flex;
+}
+
+#list-exit-p {
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
